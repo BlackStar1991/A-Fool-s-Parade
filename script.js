@@ -35,7 +35,7 @@ playButton.addEventListener('click', () => {
         wrapperEqualizer.classList.add('active');
         audio.play();
 
-        // Создаем AudioContext только при первом нажатии на кнопку
+
         if (!audioContext) {
             audioContext = new AudioContext();
             analyzer = audioContext.createAnalyser();
