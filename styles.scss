@@ -1,0 +1,191 @@
+:root {
+  --button_size: 10vw;
+  --yellow: #FFA50B;
+}
+
+body {
+  margin: 0;
+  background-color: #1E0001;
+  font-family: "Reem Kufi Fun", sans-serif;
+  font-optical-sizing: auto;
+  color: var(--yellow);
+  height: 100dvh;
+  overflow: hidden;
+}
+
+.name,
+.sub_name {
+  position: relative;
+  margin: 10px;
+  font-size: 10vh;
+  font-weight: 500;
+
+  z-index: 3;
+}
+
+.sub_name {
+  font-size: 8vh;
+}
+
+.container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+
+  z-index: -1;
+}
+
+
+#blueMoon {
+  object-fit: contain;
+
+}
+
+.decor {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: 10vw;
+  max-width: 10vh;
+  height: 100%;
+  z-index: 2;
+}
+
+.decor_line {
+  position: absolute;
+  height: 100%;
+  width: 140%;
+  background-color: rgba(255, 0, 0, .2);
+  transform-origin: 50% 100%;
+}
+
+.decor_line_1 {
+  width: 150%;
+  transform: translateX(100%) skew(-45deg);
+}
+
+.decor_line_2 {
+  background-color: rgba(255, 0, 0, .1);
+  z-index: 2;
+}
+
+.decor_line_3 {
+  width: 150%;
+  transform: translateX(-100%) skew(45deg);
+}
+
+.wrapper_equalizer {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+
+}
+
+.wrapper_equalizer.active .title {
+  opacity: 0;
+}
+
+.title {
+  margin: 0;
+  font-size: 8vh;
+  opacity: 1;
+  will-change: opacity;
+  transition: opacity .2s ease-in;
+}
+
+#canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+}
+
+
+.logo {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  transition: .2s ease-in;
+  opacity: .1;
+
+  &:hover,
+  &:focus {
+    opacity: 1;
+  }
+}
+
+*::selection {
+  background-color: #f00;
+  color: #000;
+}
+
+
+.button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 5;
+
+  width: var(--button_size);
+  height: var(--button_size);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid var(--yellow);
+  background: none;
+  cursor: pointer;
+
+  @media (max-height: 300px) {
+    --button_size: 50vh;
+  }
+
+
+  &--play {
+    border-radius: 50%;
+  }
+
+  &--play & {
+    &__shape {
+
+      display: block;
+      width: calc(var(--button_size) / 6);
+      height: calc(var(--button_size) / 2);
+      background: var(--yellow);
+      transition: .3s ease-in-out;
+
+
+      &--one {
+        -webkit-clip-path: polygon(0 0, 100% 25%, 100% 75%, 0% 100%);
+        transform: translateX(5px)
+      }
+
+      &--two {
+        -webkit-clip-path: polygon(0 25%, 100% 50%, 100% 50%, 0 75%);
+        transform: translateX(4.9px)
+      }
+    }
+
+  }
+
+  &--play#{&}--active & {
+    &__shape {
+
+      &--one {
+        -webkit-clip-path: polygon(0 15%, 50% 15%, 50% 85%, 0% 85%);
+        transform: translateX(0px)
+      }
+
+      &--two {
+        -webkit-clip-path: polygon(50% 15%, 100% 15%, 100% 85%, 50% 85%);
+        transform: translateX(0px)
+      }
+    }
+  }
+}

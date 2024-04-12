@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="styles.css">
+    <title>A Fool’s Parade</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Reem+Kufi+Fun:wght@400..700&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="block">
+    <p class="name">Within Temptation</p>
+    <p class="sub_name">(feat. Alex Yarmak)</p>
+
+    <div class="container">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 880" preserveAspectRatio="none">
+            <filter id="displacementFilter">
+                <feTurbulence type="turbulence" baseFrequency="0.1 .1" numOctaves="1" result="turbulence" seed="53"/>
+                <feDisplacementMap in2="turbulence" in="SourceGraphic" scale="6" xChannelSelector="R"
+                                   yChannelSelector="B"/>
+            </filter>
+            <image id="blueMoon" x="0" y="-200" xlink:href="big_bg.jpg" height="100%" width="100%"
+                   preserveAspectRatio="xMinYMin slice"/>
+            <use xlink:href="#blueMoon" transform="translate(0, 0) scale(1 1) " filter="url(#displacementFilter)"/>
+        </svg>
+    </div>
+
+    <div class="decor">
+        <div class="decor_line decor_line_1"></div>
+        <div class="decor_line decor_line_2"></div>
+        <div class="decor_line decor_line_3"></div>
+    </div>
+
+
+    <button type="button" class="button button--play">
+        <span class="button__shape button__shape--one"></span>
+        <span class="button__shape button__shape--two"></span>
+    </button>
+
+
+    <div class="wrapper_equalizer">
+        <h1 class="title">A Fool’s Parade</h1>
+        <canvas id="canvas"></canvas>
+    </div>
+
+
+    <a class="logo" href="https://www.youtube.com/watch?v=fBWeMivsraA" target="_blank">
+        <img width="250" height="70" src="logo_withintemptation.svg" alt="Within Temptation">
+    </a>
+</div>
+
+<audio id="player" preload src="Within-Temptation-A-Fool’s-Parade.mp3?raw=true"></audio>
+
+
+<script src="script.js"></script>
+</body>
+</html>
