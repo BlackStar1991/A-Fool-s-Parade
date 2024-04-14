@@ -21,6 +21,9 @@ const playButton = document.querySelector('.button--play');
 const audio = document.getElementById('player');
 const wrapperEqualizer = document.querySelector(".wrapper_equalizer");
 const canvas = document.getElementById('canvas');
+audio.controls = false;
+audio.loop = true;
+audio.autoplay = false;
 
 
 canvas.width = window.innerWidth;
@@ -41,6 +44,8 @@ playButton.addEventListener('click', () => {
             analyzer = audioContext.createAnalyser();
             const audioSource = audioContext.createMediaElementSource(audio);
             audioSource.connect(analyzer);
+            audioSource.connect(audioContext.destination);
+            audio.crossOrigin = 'anonymous';
             analyzer.connect(audioContext.destination);
             analyzer.fftSize = 128;
         }
